@@ -16,10 +16,9 @@ countdf.columns = ['Neighborhood', 'Count']
 
 sf_geo = r'san-francisco.geojson'
 
-# create a plain world map
 sf_map = folium.Map(location=[37.7749, -122.4194], zoom_start=12)
 
-sf_map.choropleth(
+folium.Choropleth(
     geo_data=sf_geo,
     data=countdf,
     columns=['Neighborhood', 'Count'],
@@ -28,7 +27,11 @@ sf_map.choropleth(
     fill_opacity=0.7,
     line_opacity=0.2,
     legend_name='Crime Rate in San Francisco'
-)
+).add_to(sf_map)
+
+folium.LayerControl().add_to(sf_map)
+
 
 # display map
 sf_map
+
