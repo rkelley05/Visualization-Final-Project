@@ -35,3 +35,5 @@ for rect, label in zip(rects, labels):
     height = rect.get_height()
     ax.text(rect.get_x() + rect.get_width() / 2, height + 5, label,
             ha='center', va='bottom', fontsize=14)
+
+plt.show()
